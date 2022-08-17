@@ -3,9 +3,33 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>    
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AssemblyName>Nfw.Linux.Joystick</AssemblyName>
+    <AssemblyTitle>Nfw.Linux.Joystick</AssemblyTitle>
+    <RootNamespace>Nfw.Linux.Joystick</RootNamespace>
+    <Authors>nate@yocom.org</Authors>
+    <PackageId>Nfw.Linux.Joystick</PackageId>    
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <PackageIcon>console-controller-game-joystick-icon-661573.png</PackageIcon>
+    <PackageTags>Linux Joystick Gamepad /dev/input/js xpad xbox NetCore</PackageTags>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/nate-yocom/Nfw.Linux.Joystick</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nate-yocom/Nfw.Linux.Joystick.git</RepositoryUrl>    
+    <RepositoryType>git</RepositoryType>    
+    <Description>A Joystick Library with generic support for the Linux input system and the /dev/input/js[x] device(s), as well as Xpad Xbox support</Description>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
+    <None Include="console-controller-game-joystick-icon-661573.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />    
   </ItemGroup>
