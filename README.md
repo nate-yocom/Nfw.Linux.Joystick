@@ -47,7 +47,7 @@ using(Joystick joystick = new Joystick("/dev/input/js0")) {
 
 ## Smart Layer
 
-This layer adds the ability to report events with more meaning - i.e. Short vs Long press (avoiding the need for the library user to do timing and state tracking):
+This layer adds the ability to report events with more meaning - i.e. Short vs Long press (avoiding the need for the library user to do timing and state tracking).  This also introduces a per-axis or button elapsed time since last event argument to the callback, allowing for custom timing logic in user code.
 
 ```csharp
 using Nfw.Linux.Joystick.Smart;
@@ -81,7 +81,7 @@ Note that the second argument to this constructor allows for masking in/out spec
 
 ## Xpad Layer
 
-This layer is idea for the case where you know the attached controller is an XBox controller - as supported by the Xpad driver for Linux:
+This layer is idea for the case where you know the attached controller is an XBox controller - as supported by the Xpad driver for Linux.  Optionally, calling code can also ask that all Axis be mapped as button events.
 
 ```csharp
 using Nfw.Linux.Joystick.Smart;
@@ -122,7 +122,7 @@ using(XboxGamepad joystick = new XboxGamepad("/dev/input/js0", ButtonEventTypes.
 }
 ```
 
-Note that this layer also includes support for the Layer button specific to the Microsoft X-Box Adaptive Controller, which requires a newer Xpad driver than currently in any mainline Linux tree.  See https://github.com/nate-yocom/xpad-xac for such a driver (at least until merged upstream, proposed patches sent: https://patchwork.kernel.org/project/linux-input/cover/20220813185343.2306-1-nate@yocom.org/ - expand the series to see the full patch set).
+Note that this layer also includes support for the Profile button specific to the Microsoft X-Box Adaptive Controller, which requires a newer Xpad driver than currently in any mainline Linux tree.  See https://github.com/nate-yocom/xpad-xac for such a driver.
 
 ## References
 - Gamepad library: https://github.com/nahueltaibo/gamepad by @nahueltaibo

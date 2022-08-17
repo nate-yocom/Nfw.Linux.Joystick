@@ -28,10 +28,10 @@ namespace Nfw.Linux.Joystick.Xpad {
         DPadRight   = StartSyntheticButtons + 12,   // Axis 0x06 - 32767 = pressed, 0 = unpressed
         DPadUp      = StartSyntheticButtons + 13,   // Axis 0x07 - -32767 = pressed, 0 = unpressed
         DPadDown    = StartSyntheticButtons + 14,   // Axis 0x07 - 32767 = pressed, 0 = unpressed
-        Layer0      = StartSyntheticButtons + 15,   // Axis 0x08 - -32767
-        Layer1      = StartSyntheticButtons + 16,   // Axis 0x08 - -16384
-        Layer2      = StartSyntheticButtons + 17,   // Axis 0x08 - 0
-        Layer3      = StartSyntheticButtons + 18,   // Axis 0x08 - 16384        
+        Profile0    = StartSyntheticButtons + 15,   // Axis 0x08 - -32767
+        Profile1    = StartSyntheticButtons + 16,   // Axis 0x08 - -16384
+        Profile2    = StartSyntheticButtons + 17,   // Axis 0x08 - 0
+        Profile3    = StartSyntheticButtons + 18,   // Axis 0x08 - 16384        
     }
 
     public enum Axis {
@@ -43,6 +43,6 @@ namespace Nfw.Linux.Joystick.Xpad {
         RT              = 0x05, // Full range, -32767 unpressed to 32767 fully pressed
         DPadLeftRight   = 0x06, // 0x06 (negative = Left, positive = Right)
         DPadUpDown      = 0x07, // 0x07 (negative = Down, positive = Up)        
-        Layer           = 0x08, // Only on the XAC: 4 values, -32767 = 0, -16384 = 1, 0 = 2, 16384 = 3 
+        Profile         = 0x08, // Only on the XAC: 4 values, -32767 = 0, -16384 = 1, 0 = 2, 16384 = 3 
     }    
 }

@@ -105,29 +105,29 @@ namespace Nfw.Linux.Joystick.Xpad {
                     else if (value >= (MappedAxisButtonPressThreshold * AXIS_POSITIVE_MAX))
                         ButtonChangeCallback((byte) mappedButton, true);
                     break;
-                case Button.Layer0:
-                    ButtonChangeCallback((byte) Button.Layer0, true);
-                    ButtonChangeCallback((byte) Button.Layer1, false);
-                    ButtonChangeCallback((byte) Button.Layer2, false);
-                    ButtonChangeCallback((byte) Button.Layer3, false);
+                case Button.Profile0:
+                    ButtonChangeCallback((byte) Button.Profile0, true);
+                    ButtonChangeCallback((byte) Button.Profile1, false);
+                    ButtonChangeCallback((byte) Button.Profile2, false);
+                    ButtonChangeCallback((byte) Button.Profile3, false);
                     break;
-                case Button.Layer1:
-                    ButtonChangeCallback((byte) Button.Layer0, false);
-                    ButtonChangeCallback((byte) Button.Layer1, true);
-                    ButtonChangeCallback((byte) Button.Layer2, false);
-                    ButtonChangeCallback((byte) Button.Layer3, false);
+                case Button.Profile1:
+                    ButtonChangeCallback((byte) Button.Profile0, false);
+                    ButtonChangeCallback((byte) Button.Profile1, true);
+                    ButtonChangeCallback((byte) Button.Profile2, false);
+                    ButtonChangeCallback((byte) Button.Profile3, false);
                     break;
-                case Button.Layer2:
-                    ButtonChangeCallback((byte) Button.Layer0, false);
-                    ButtonChangeCallback((byte) Button.Layer1, false);
-                    ButtonChangeCallback((byte) Button.Layer2, true);
-                    ButtonChangeCallback((byte) Button.Layer3, false);
+                case Button.Profile2:
+                    ButtonChangeCallback((byte) Button.Profile0, false);
+                    ButtonChangeCallback((byte) Button.Profile1, false);
+                    ButtonChangeCallback((byte) Button.Profile2, true);
+                    ButtonChangeCallback((byte) Button.Profile3, false);
                     break;
-                case Button.Layer3:
-                    ButtonChangeCallback((byte) Button.Layer0, false);
-                    ButtonChangeCallback((byte) Button.Layer1, false);
-                    ButtonChangeCallback((byte) Button.Layer2, false);
-                    ButtonChangeCallback((byte) Button.Layer3, true);
+                case Button.Profile3:
+                    ButtonChangeCallback((byte) Button.Profile0, false);
+                    ButtonChangeCallback((byte) Button.Profile1, false);
+                    ButtonChangeCallback((byte) Button.Profile2, false);
+                    ButtonChangeCallback((byte) Button.Profile3, true);
                     break;
             }
         }
@@ -170,16 +170,16 @@ namespace Nfw.Linux.Joystick.Xpad {
                     return direction < 0 ? Button.DPadLeft : Button.DPadRight;
                 case Axis.DPadUpDown:
                     return direction < 0 ? Button.DPadUp : Button.DPadDown;
-                case Axis.Layer:
+                case Axis.Profile:
                     switch(direction) {
                         case -32767:
-                            return Button.Layer0;
+                            return Button.Profile0;
                         case -16384:
-                            return Button.Layer1;
+                            return Button.Profile1;
                         case 0:
-                            return Button.Layer2;
+                            return Button.Profile2;
                         case 16384:
-                            return Button.Layer3;                            
+                            return Button.Profile3;                            
                         default:
                             // Unknown
                             return Button.StartSyntheticButtons;
