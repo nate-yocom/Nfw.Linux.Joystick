@@ -15,6 +15,10 @@ This library extends and goes beyond however, providing 3 layers with which you 
  - Callback on connect/disconnect (and no events when disconnected)
  - Current connected state available via the ```Connected``` property
  - Current device being watched via the ```Device``` property
+
+## NuGet
+
+```dotnet add package Nfw.Linux.Joystick```
  
 ## Samples 
 
