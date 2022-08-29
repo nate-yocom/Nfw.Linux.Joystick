@@ -1,6 +1,8 @@
 ﻿using Nfw.Linux.Joystick.Simple;
 
-using(Joystick joystick = new Joystick("/dev/input/js0")) {
+string jsFile = args.Count() > 0 ? args[0] : "/dev/input/js0";
+
+using(Joystick joystick = new Joystick(jsFile)) {
     joystick.ButtonCallback = (j, button, pressed) => {
         Console.WriteLine($"{j.DeviceName} => Button[{button}] => {pressed}");
     };
@@ -12,8 +14,7 @@ using(Joystick joystick = new Joystick("/dev/input/js0")) {
     joystick.ConnectedCallback = (j, c) => {
         Console.WriteLine($"{j.DeviceName} => Connected[{c}]");
     };
-
-    Console.WriteLine("Watching for js0 events, press enter to quit...");
+    
+    Console.WriteLine($"Watching for {jsFile} events, press enter to quit...");
     Console.ReadLine();
 }
-
