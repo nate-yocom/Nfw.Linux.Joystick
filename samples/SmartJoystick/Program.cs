@@ -1,6 +1,8 @@
 ﻿using Nfw.Linux.Joystick.Smart;
 
-using(Joystick joystick = new Joystick("/dev/input/js0", ButtonEventTypes.All)) {
+string jsFile = args.Count() > 0 ? args[0] : "/dev/input/js0";
+
+using(Joystick joystick = new Joystick(jsFile, ButtonEventTypes.All)) {
 
     // We can optionally set the behavior controller wide, or per button, re what constitutes a LongPress vs a ShortPress:
     //  To do this per-button, call joystick.SetButtonSettings(<button id>, <settings>);    
@@ -20,6 +22,6 @@ using(Joystick joystick = new Joystick("/dev/input/js0", ButtonEventTypes.All)) 
         Console.WriteLine($"{j.DeviceName} => Connected[{c}]");
     };
 
-    Console.WriteLine("Watching for js0 events, press enter to quit...");
+    Console.WriteLine($"Watching for {jsFile} events, press enter to quit...");
     Console.ReadLine();
 }
