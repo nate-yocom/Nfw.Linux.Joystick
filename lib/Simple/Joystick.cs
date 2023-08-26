@@ -89,7 +89,7 @@ namespace Nfw.Linux.Joystick.Simple {
         }
 
         private void ProcessDeviceMessages(CancellationToken token) {            
-            using (FileStream fs = new FileStream(_deviceFile, FileMode.Open)) {                
+            using (FileStream fs = new FileStream(_deviceFile, FileMode.Open, FileAccess.Read)) {                
                 byte[] message = new byte[MessageParser.ReadSize];
                 while (!token.IsCancellationRequested) {                    
                     fs.Read(message, 0, MessageParser.ReadSize);
@@ -162,7 +162,7 @@ namespace Nfw.Linux.Joystick.Simple {
 
         private string? ProbeForName() {
             try {                
-                using(var fileHandle = File.OpenHandle(_deviceFile, FileMode.Open, FileAccess.ReadWrite, FileShare.None, FileOptions.None, 0)) {
+                using(var fileHandle = File.OpenHandle(_deviceFile, FileMode.Open, FileAccess.Read, FileShare.Read, FileOptions.None, 0)) {
                     byte[] name = new byte[128];
                     if(ioctl(fileHandle.DangerousGetHandle().ToInt32(), JSIOCGNAME_128, name) < 0) {
                         _logger?.LogError($"ProbeForName ioctl({JSIOCGNAME_128}) error: {System.Runtime.InteropServices.Marshal.ReadInt32(__errno_location())}");

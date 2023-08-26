@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nfw.Linux.Joystick", "lib\Nfw.Linux.Joystick.csproj", "{10446652-A5BA-4FF7-9229-A2C7F6221E8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{652A1C4E-706D-4BE7-AE74-A44AB4918FE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartJoystick", "samples\SmartJoystick\SmartJoystick.csproj", "{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleJoystick", "samples\SimpleJoystick\SimpleJoystick.csproj", "{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XBoxGamepad", "samples\XBoxGamepad\XBoxGamepad.csproj", "{C0BAAF9E-C78F-400B-883E-670AB33ECD44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10446652-A5BA-4FF7-9229-A2C7F6221E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10446652-A5BA-4FF7-9229-A2C7F6221E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10446652-A5BA-4FF7-9229-A2C7F6221E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10446652-A5BA-4FF7-9229-A2C7F6221E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BAAF9E-C78F-400B-883E-670AB33ECD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BAAF9E-C78F-400B-883E-670AB33ECD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BAAF9E-C78F-400B-883E-670AB33ECD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BAAF9E-C78F-400B-883E-670AB33ECD44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66BCAFEC-B8F2-467F-AFA7-AD30189C17E7} = {652A1C4E-706D-4BE7-AE74-A44AB4918FE1}
+		{36E61D34-CCF2-41B9-A16E-890E1B9D8BB3} = {652A1C4E-706D-4BE7-AE74-A44AB4918FE1}
+		{C0BAAF9E-C78F-400B-883E-670AB33ECD44} = {652A1C4E-706D-4BE7-AE74-A44AB4918FE1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79F9AE7C-FE97-4EB7-866E-1A9C0CA748A4}
+	EndGlobalSection
+EndGlobal

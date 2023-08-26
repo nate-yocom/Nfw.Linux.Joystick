@@ -131,3 +131,7 @@ Note that this layer also includes support for the Profile button specific to th
 ## References
 - Gamepad library: https://github.com/nahueltaibo/gamepad by @nahueltaibo
 - Linux kernel joystick API: https://www.kernel.org/doc/Documentation/input/joystick-api.txt
+
+## Changes
+
+- 1.0.1 fixes device access to be non-exclusive and read only
