@@ -134,4 +134,5 @@ Note that this layer also includes support for the Profile button specific to th
 
 ## Changes
 
+- 1.0.2 adds autoprobe on construction for device name
 - 1.0.1 fixes device access to be non-exclusive and read only
