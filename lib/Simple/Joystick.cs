@@ -28,6 +28,8 @@ namespace Nfw.Linux.Joystick.Simple {
             _deviceFile = deviceFile;
             _logger = logger;
 
+            DeviceName = ProbeForName();
+            
             Task.Factory.StartNew(() => RunningLoop(_cancellationTokenSource.Token));
         }
 
@@ -171,7 +173,7 @@ namespace Nfw.Linux.Joystick.Simple {
                         string stringName = System.Text.ASCIIEncoding.ASCII.GetString(name).TrimEnd(new char[] { '\r', '\n', ' ', '\0' });
                         _logger?.LogInformation($"Found Joystick at {_deviceFile} => {stringName}");
                         return stringName;
-                    }                 
+                    }                    
                 }
             } catch(Exception ex) {
                 _logger?.LogError($"Unable to probe {_deviceFile}: {ex.Message}");
