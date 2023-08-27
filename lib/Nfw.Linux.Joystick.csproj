@@ -15,7 +15,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <PackageIcon>console-controller-game-joystick-icon-661573.png</PackageIcon>
     <PackageTags>Linux Joystick Gamepad /dev/input/js xpad xbox NetCore</PackageTags>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/nate-yocom/Nfw.Linux.Joystick</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nate-yocom/Nfw.Linux.Joystick.git</RepositoryUrl>    

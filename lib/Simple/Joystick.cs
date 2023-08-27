@@ -23,13 +23,33 @@ namespace Nfw.Linux.Joystick.Simple {
         public string? DeviceName { get; private set; }
         public bool CallbackForAllEvents { get; set; } = true;
         public string Device { get { return _deviceFile; } }
+
+        public static string? ProbeDeviceName(string deviceFile, ILogger? logger)
+        {
+            try {                
+                using(var fileHandle = File.OpenHandle(deviceFile, FileMode.Open, FileAccess.Read, FileShare.Read, FileOptions.None, 0)) {
+                    byte[] name = new byte[128];
+                    if(ioctl(fileHandle.DangerousGetHandle().ToInt32(), JSIOCGNAME_128, name) < 0) {
+                        logger?.LogError($"ProbeForName ioctl({JSIOCGNAME_128}) error: {System.Runtime.InteropServices.Marshal.ReadInt32(__errno_location())}");
+                        return null;
+                    } else {
+                        string stringName = System.Text.ASCIIEncoding.ASCII.GetString(name).TrimEnd(new char[] { '\r', '\n', ' ', '\0' });
+                        logger?.LogInformation($"Found Joystick at {deviceFile} => {stringName}");
+                        return stringName;
+                    }                    
+                }
+            } catch(Exception ex) {
+                logger?.LogError($"Unable to probe {deviceFile}: {ex.Message}");
+                return null;
+            }
+        }
         
         public Joystick(string deviceFile, ILogger? logger) {
             _deviceFile = deviceFile;
             _logger = logger;
 
-            DeviceName = ProbeForName();
-            
+            DeviceName = ProbeDeviceName(_deviceFile, _logger);
+
             Task.Factory.StartNew(() => RunningLoop(_cancellationTokenSource.Token));
         }
 
@@ -75,7 +95,7 @@ namespace Nfw.Linux.Joystick.Simple {
                     } else {
                         // Try to re-open/probe device if exists
                         if (DeviceFileExists) {
-                            DeviceName = ProbeForName();
+                            DeviceName = ProbeDeviceName(_deviceFile, _logger);
                             Connected = true;
                             InvokeConnectedCallback(Connected);                            
                         } else {
@@ -160,26 +180,7 @@ namespace Nfw.Linux.Joystick.Simple {
 
         [DllImport("libc", EntryPoint = "__errno_location")]
         private static extern System.IntPtr __errno_location();
-        private const uint JSIOCGNAME_128 = 0x80806A13;  // JSIOCGNAME(len = 128)
-
-        private string? ProbeForName() {
-            try {                
-                using(var fileHandle = File.OpenHandle(_deviceFile, FileMode.Open, FileAccess.Read, FileShare.Read, FileOptions.None, 0)) {
-                    byte[] name = new byte[128];
-                    if(ioctl(fileHandle.DangerousGetHandle().ToInt32(), JSIOCGNAME_128, name) < 0) {
-                        _logger?.LogError($"ProbeForName ioctl({JSIOCGNAME_128}) error: {System.Runtime.InteropServices.Marshal.ReadInt32(__errno_location())}");
-                        return null;
-                    } else {
-                        string stringName = System.Text.ASCIIEncoding.ASCII.GetString(name).TrimEnd(new char[] { '\r', '\n', ' ', '\0' });
-                        _logger?.LogInformation($"Found Joystick at {_deviceFile} => {stringName}");
-                        return stringName;
-                    }                    
-                }
-            } catch(Exception ex) {
-                _logger?.LogError($"Unable to probe {_deviceFile}: {ex.Message}");
-                return null;
-            }
-        }
+        private const uint JSIOCGNAME_128 = 0x80806A13;  // JSIOCGNAME(len = 128)        
 
         protected virtual void Dispose(bool disposing) {
             if (!_disposedValue) {
