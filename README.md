@@ -134,6 +134,7 @@ Note that this layer also includes support for the Profile button specific to th
 
 ## Changes
 
+- 1.0.4 moves found controller message in log to Trace from Information
 - 1.0.3 adds static device probe helper to Joystick class
 - 1.0.2 adds autoprobe on construction for device name
 - 1.0.1 fixes device access to be non-exclusive and read only

@@ -34,7 +34,7 @@ namespace Nfw.Linux.Joystick.Simple {
                         return null;
                     } else {
                         string stringName = System.Text.ASCIIEncoding.ASCII.GetString(name).TrimEnd(new char[] { '\r', '\n', ' ', '\0' });
-                        logger?.LogInformation($"Found Joystick at {deviceFile} => {stringName}");
+                        logger?.LogTrace($"Found Joystick at {deviceFile} => {stringName}");
                         return stringName;
                     }                    
                 }
